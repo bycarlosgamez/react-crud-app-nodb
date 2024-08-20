@@ -1,13 +1,15 @@
+import { useState } from 'react';
 import { db } from '../db/db';
+import CrudForm from './CrudForm';
+import CrudTable from './CrudTable';
 
 const Crud = () => {
-  console.log(db);
+  const [dataBase, setDataBase] = useState(db);
   return (
     <>
       <h1>CRUD</h1>
-      <form>
-        <table></table>
-      </form>
+      <CrudForm />
+      <CrudTable db={dataBase} />
     </>
   );
 };
