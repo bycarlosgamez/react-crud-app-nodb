@@ -1,6 +1,6 @@
 import CrudTableRow from './CrudTableRow';
 
-const CrudTable = ({ db }) => {
+const CrudTable = ({ db, handleDelete }) => {
   const tableRows = db.map((el) => {
     return <CrudTableRow key={el.id} el={el} />;
   });

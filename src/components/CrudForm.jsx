@@ -6,14 +6,43 @@ const initialFormState = {
   id: null,
 };
 
-const CrudForm = () => {
+const CrudForm = ({ handleCreate, handleUpdate, setDataEdit, dataEdit }) => {
   const [formState, setFormState] = useState(initialFormState);
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormState((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
+  };
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  const handleReset = (e) => {};
+    if (!formState.name || !formState.brand) {
+      alert('Missing info');
+      return;
+    }
+
+    if (formState.id === null) {
+      handleCreate(formState);
+    } else {
+      handleUpdate(formState);
+    }
+
+    handleReset();
+  };
+
+  const handleReset = (e) => {
+    // e.preventDefault();
+
+    setFormState(initialFormState);
+    setDataEdit(null);
+  };
+
   return (
     <div>
       <h3>Add</h3>
