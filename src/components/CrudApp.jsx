@@ -14,7 +14,14 @@ const Crud = () => {
     });
   };
 
-  const updateData = (data) => {};
+  const updateData = (data) => {
+    setDataBase((prevData) =>
+      prevData.map((el) => {
+        return el.id === data.id ? data : el;
+      })
+    );
+  };
+
   const deleteData = (id) => {};
 
   return (

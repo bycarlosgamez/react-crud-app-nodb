@@ -1,11 +1,11 @@
-const CrudTableRow = ({ el }) => {
+const CrudTableRow = ({ el, handleDelete, setDataEdit }) => {
   return (
     <tr>
       <td>{el.name}</td>
       <td>{el.brand}</td>
       <td>
-        <button>Edit</button>
-        <button>Delete</button>
+        <button onClick={() => setDataEdit(el)}>Edit</button>
+        <button onClick={() => handleDelete(el.id)}>Delete</button>
       </td>
     </tr>
   );

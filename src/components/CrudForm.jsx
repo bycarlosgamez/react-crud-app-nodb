@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const initialFormState = {
   name: '',
@@ -8,6 +8,14 @@ const initialFormState = {
 
 const CrudForm = ({ handleCreate, handleUpdate, setDataEdit, dataEdit }) => {
   const [formState, setFormState] = useState(initialFormState);
+
+  useEffect(() => {
+    if (dataEdit) {
+      setFormState(dataEdit);
+    } else {
+      setFormState(initialFormState);
+    }
+  }, [dataEdit]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,7 +53,7 @@ const CrudForm = ({ handleCreate, handleUpdate, setDataEdit, dataEdit }) => {
 
   return (
     <div>
-      <h3>Add</h3>
+      <h3>{dataEdit ? 'Edit entry' : 'Add new entry'}</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor='name'>Name</label>
         <input
