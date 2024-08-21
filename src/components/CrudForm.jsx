@@ -45,8 +45,6 @@ const CrudForm = ({ handleCreate, handleUpdate, setDataEdit, dataEdit }) => {
   };
 
   const handleReset = (e) => {
-    // e.preventDefault();
-
     setFormState(initialFormState);
     setDataEdit(null);
   };

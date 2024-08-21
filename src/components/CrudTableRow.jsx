@@ -5,7 +5,7 @@ const CrudTableRow = ({ el, handleDelete, setDataEdit }) => {
       <td>{el.brand}</td>
       <td>
         <button onClick={() => setDataEdit(el)}>Edit</button>
-        <button onClick={() => handleDelete(el.id)}>Delete</button>
+        <button onClick={() => handleDelete(el)}>Delete</button>
       </td>
     </tr>
   );

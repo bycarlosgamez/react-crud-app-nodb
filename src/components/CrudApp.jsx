@@ -22,7 +22,21 @@ const Crud = () => {
     );
   };
 
-  const deleteData = (id) => {};
+  const deleteData = (data) => {
+    let isDeleted = window.confirm(
+      `Are you sure you want to delete the entry ${data.name}?`
+    );
+
+    if (isDeleted) {
+      setDataBase((prevData) =>
+        prevData.filter((el) => {
+          return data.id !== el.id;
+        })
+      );
+    } else {
+      return;
+    }
+  };
 
   return (
     <>
